@@ -1,0 +1,23 @@
+#createBugFormCol,
+#createFeatureFormCol,
+#bugListCol {
+  background-color: rgb(233, 233, 233);
+  /* color: rgb(245, 164, 164); */
+  padding: 10px;
+  margin: 10px;
+  min-height: 140px;
+}
+
+.errorText {
+  background-color: lightcoral;
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+}
+
+.submitText {
+  background-color: lightgreen;
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+}
