@@ -1,6 +1,4 @@
-#createBugFormCol,
-#createFeatureFormCol,
-#bugListCol {
+.row_grey {
   background-color: rgb(233, 233, 233);
   /* color: rgb(245, 164, 164); */
   padding: 10px;

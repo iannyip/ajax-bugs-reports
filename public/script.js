@@ -8,11 +8,67 @@ const getFeatures = async () => {
   return featureList;
 };
 
-const rootBtn = document.getElementById('rootBtn');
-const colBugForm = document.getElementById('createBugFormCol');
-const colFeatureForm = document.getElementById('createFeatureFormCol');
-// const colBugList = document.getElementById('bugListCol');
-const bugTableBody = document.getElementById('bugTable');
+// Make the main container
+const mainContainer = document.createElement('div');
+mainContainer.classList.add('container', 'mt-4');
+document.body.appendChild(mainContainer);
+
+// Add all the rows
+const bugFormRow = document.createElement('div');
+const featureFormRow = document.createElement('div');
+const bugListRow = document.createElement('div');
+bugFormRow.classList.add('row', 'row_grey');
+featureFormRow.classList.add('row', 'row_grey');
+bugListRow.classList.add('row', 'row_grey');
+
+// Add row titles
+const bugFormTitle = document.createElement('h1');
+const featureFormTitle = document.createElement('h1');
+const bugListTitle = document.createElement('h1');
+bugFormTitle.innerText = 'Create Bug Form';
+featureFormTitle.innerText = 'Create Feature Form';
+bugListTitle.innerText = 'Bugs List';
+
+// Add all the cols
+const colBugForm = document.createElement('div');
+const colFeatureForm = document.createElement('div');
+const bugListCol = document.createElement('div');
+colBugForm.classList.add('col');
+colFeatureForm.classList.add('col');
+bugListCol.classList.add('col');
+
+// Append rows and row titles
+mainContainer.appendChild(bugFormRow);
+mainContainer.appendChild(featureFormRow);
+mainContainer.appendChild(bugListRow);
+bugFormRow.appendChild(bugFormTitle);
+bugFormRow.appendChild(colBugForm);
+featureFormRow.appendChild(featureFormTitle);
+featureFormRow.appendChild(colFeatureForm);
+bugListRow.appendChild(bugListTitle);
+bugListRow.appendChild(bugListCol);
+
+// add button for bug form
+const rootBtn = document.createElement('button');
+rootBtn.classList.add('btn', 'btn-primary');
+rootBtn.innerText = 'Create a Bug';
+colBugForm.appendChild(rootBtn);
+
+const bugTable = document.createElement('table');
+bugTable.classList.add('table');
+const bugTableHead = document.createElement('thead');
+const bugTableBody = document.createElement('tbody');
+bugListCol.appendChild(bugTable);
+bugTable.appendChild(bugTableHead);
+bugTable.appendChild(bugTableBody);
+const bugTableHeadTr = document.createElement('tr');
+bugTableHead.appendChild(bugTableHeadTr);
+['#', 'Problem', 'Text', 'Feature'].forEach((column) => {
+  const colth = document.createElement('th');
+  colth.innerText = column;
+  colth.scope = 'col';
+  bugTableHeadTr.appendChild(colth);
+});
 
 rootBtn.addEventListener('click', async () => {
   console.log('Button clicked');
